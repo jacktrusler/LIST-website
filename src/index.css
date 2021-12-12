@@ -1,13 +1,144 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+  /* box-sizing: border-box; */
+  font-size: 16px;
+  margin: 0px; 
+  padding: 0px;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  text-align: left; 
 }
+
+
+p {
+font-size: 1.2rem;
+}
+
+li {
+font-size: 1rem;
+}
+
+.picture-container {
+display: flex;
+width: 100%; 
+height: 95vh; 
+position: relative;
+}
+
+img {
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.navbar { 
+position: relative;
+display: flex;
+flex-direction: row;
+justify-content: left;
+gap: 5%; 
+height: 6vh;
+padding-top: 5px;
+padding-left: 80px;
+position: -webkit-sticky;
+position: sticky;
+background: rgb(2,0,36);
+background: linear-gradient(90deg, rgb(6, 2, 70) 0%, rgba(9,9,121,1) 23%, rgb(37, 68, 207) 100%); 
+}
+
+.navbar button{
+  width: 50px;
+  height: 30px;
+}
+
+#text-labels{
+  font-size: 10pt
+}
+
+.title-bar-text{
+  font-size: 1rem;
+}
+
+#about{
+position: fixed; 
+left: 30vw;
+bottom: 33vh;
+}
+
+#contact{
+position: fixed;
+left: 35vw;
+bottom: 35vh;
+}
+
+.field-row button{
+  width: 50px;
+  height: 30px;
+}
+
+#message{
+  font-size: 1rem
+}
+
+.command-prompt{
+position: fixed;
+left: 22vw;
+bottom: 40vh;
+}
+
+.left-align{
+  display: flex;
+  justify-content: flex-start; 
+}
+
+menu[role="tablist"]{ 
+z-index: 0;
+}
+
+article[role="tabpanel"]{ 
+position: relative;
+z-index: 0; 
+}
+
+#start-button{
+position: absolute;
+bottom:-10px; 
+left:5px;
+
+height: 60px;
+width: 60px;
+}
+
+#navbar-item{
+text-decoration: none;
+color: white;
+padding-top: 5px;
+}
+
+.about-container{
+display: flex;
+flex-direction: row;
+justify-content: center;
+width: 100%; 
+height: 75vh;
+border-style: solid;
+border-color: black;
+}
+
+#about-summary{
+display: flex;
+width:50%;
+height: 100%;
+border-style: solid;
+border-color: red;
+}
+.big-text{
+font-size: 7rem; 
+}
+
+
+
