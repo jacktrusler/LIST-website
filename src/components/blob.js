@@ -1,3 +1,3 @@
-console.log('sup bruh')
+console.log("sup bruh");
 
-let bruh = "bruhchacho"
+let bruh = "bruhchacho";

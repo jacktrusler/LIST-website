@@ -22,32 +22,31 @@ li {
 font-size: 1rem;
 }
 
-.picture-container {
-display: flex;
-width: 100%; 
-height: 95vh; 
-position: relative;
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-img {
-width:100%;
-height:100%;
-object-fit:cover;
+.content {
+  flex: 1;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .navbar { 
-position: relative;
-display: flex;
-flex-direction: row;
-justify-content: left;
-gap: 5%; 
-height: 6vh;
-padding-top: 5px;
-padding-left: 80px;
-position: -webkit-sticky;
-position: sticky;
-background: rgb(2,0,36);
-background: linear-gradient(90deg, rgb(6, 2, 70) 0%, rgba(9,9,121,1) 23%, rgb(37, 68, 207) 100%); 
+  position: relative;
+  display: flex;
+  gap: 2rem 2rem;
+  /* position: -webkit-sticky;
+  position: sticky; */
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgb(6, 2, 70) 0%, rgba(9,9,121,1) 23%, rgb(37, 68, 207) 100%); 
 }
 
 .navbar button{
@@ -72,8 +71,14 @@ bottom: 33vh;
 #contact{
 position: fixed;
 left: 35vw;
-bottom: 35vh;
+bottom: 25vh;
 }
+
+/* surrounds forms when the fields are invalid
+#small-input{  
+  border-style: dashed;
+  border-color: red;
+} */
 
 .field-row button{
   width: 50px;
@@ -85,9 +90,9 @@ bottom: 35vh;
 }
 
 .command-prompt{
-position: fixed;
-left: 22vw;
-bottom: 40vh;
+  position: fixed;
+  left: 25vw;
+  bottom: 40vh;
 }
 
 .left-align{
@@ -104,14 +109,13 @@ position: relative;
 z-index: 0; 
 }
 
-#start-button{
-position: absolute;
-bottom:-10px; 
-left:5px;
-
-height: 60px;
-width: 60px;
+@media screen and (max-width: 600px) {
+  #start-button {
+    visibility: hidden;
+  }
 }
+
+
 
 #navbar-item{
 text-decoration: none;
@@ -139,6 +143,3 @@ border-color: red;
 .big-text{
 font-size: 7rem; 
 }
-
-
-

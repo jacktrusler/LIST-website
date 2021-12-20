@@ -1,0 +1,60 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Jason Derulo",
+      "email": "Jason@Derulo.com",
+      "phone": "like i'd give that out lmao",
+      "message": "I don't always say my name at the beginning of songs unless I do"
+    },
+    {
+      "id": 2,
+      "name": "Ethan ZimZam",
+      "email": "TheZimmer@Zimmerman.church",
+      "phone": "330-690-5684",
+      "message": "I am the lord now"
+    },
+    {
+      "name": "i am ",
+      "email": "the ",
+      "phone": "gamer ",
+      "message": "now",
+      "id": 4
+    },
+    {
+      "name": "Slovonius Flex",
+      "email": "Slovo@gmail.com",
+      "phone": "452-478-9045",
+      "message": "Hello, my name is Slovonius and I happened upon your website at the fine afternoon hour of 4:15pm, I would just like to say I love all that you do and would like to inquire on your skills are professional nerds, where are you at and how can i get my grubby fingers on your tech skills?\n\nWith Love,\nDr. Flex",
+      "id": 5
+    },
+    {
+      "name": "Emerson MC",
+      "email": "emersoncloud@emersoncloud.com",
+      "phone": "568-948-2093",
+      "message": "Hey jack, nice website lmao",
+      "id": 6
+    },
+    {
+      "name": "sup ",
+      "email": "with it ",
+      "phone": "gamer lord",
+      "message": "lmao",
+      "id": 7
+    },
+    {
+      "name": "a;lkjdsf;l",
+      "email": ";alskjdf;l",
+      "phone": "a;lksdjf;la",
+      "message": "l;kasjdf",
+      "id": 8
+    },
+    {
+      "name": "adf",
+      "email": "thezimmer@zimmerzam.church",
+      "phone": "3340390900",
+      "message": "",
+      "id": 9
+    }
+  ]
+}
