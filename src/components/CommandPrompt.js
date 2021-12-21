@@ -24,14 +24,14 @@ const CommandPrompt = (props) => {
               Microsoft Corp 1990-2001. <br />
               <br />
               <pre>
-                C:&#92;WINDOWS&#92;SYSTEM32 > echo LIST <br />
-                > Welcome to the List Integrated Systems Technology (LIST) Home
-                page! <br />
-                > Click on the about menu bar button below to get an idea of who
-                we are. <br />
-                > Click on the contact button if there are any services we IT
-                chads can take care of for you. <br />
-                C:&#92;WINDOWS&#92;SYSTEM32 > <br />
+                C:&#92;WINDOWS&#92;SYSTEM32 {">"} echo LIST <br />
+                {">"} Welcome to the List Integrated Systems Technology (LIST)
+                Home page! <br />
+                {">"} Click on the about menu bar button below to get an idea of
+                who we are. <br />
+                {">"} Click on the contact button if there are any services we
+                IT chads can take care of for you. <br />
+                C:&#92;WINDOWS&#92;SYSTEM32 {">"} <br />
               </pre>
             </pre>
           </div>

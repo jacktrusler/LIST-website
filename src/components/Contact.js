@@ -8,52 +8,38 @@ const Contact = (props) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
-
-  const errors = [];
+  const [errors, setErrors] = useState({});
 
   function validate() {
+    const newErrors = {};
+
     if (name.length < 1) {
-      errors.push("please enter your name.");
+      newErrors["name"] = "Name must not be blank";
     }
     if (!email.includes("@") || email.trim().length < 5) {
-      errors.push("please enter a valid email address.");
+      newErrors["email"] = "E-mail must include @";
     }
     if (phone.replace(/\D/g, "").length !== 10) {
-      errors.push("please enter a valid 10 digit phone number wink");
+      newErrors["phone"] = "Phone number must be 10 digits";
     }
 
-    return errors;
+    if (Object.keys(newErrors).length) {
+      setErrors(newErrors);
+      return false;
+    }
+
+    return true;
   }
 
   function submitter() {
-    const errors = validate();
-
-    // if (errors.length > 0) {
-    //   alert(
-    //     "One or more fields are invalid \n name must not be blank \n email must be valid \n phone must have exactly 10 digits"
-    //   );
-    //   return;
-    // }
-    props.addContact({ name, email, phone, message });
-    setName("");
-    setEmail("");
-    setPhone("");
-    setMessage("");
-  }
-  function textSubmitter() {
-    const errors = validate();
-
-    if (errors.length > 0) {
-      alert(
-        "One or more fields are invalid \n name must not be blank \n email must be valid \n phone must have exactly 10 digits"
-      );
-      return;
+    if (validate()) {
+      props.addContact({ name, email, phone, message });
+      setName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+      setErrors({});
     }
-    props.addContactText({ name, email, phone, message });
-    setName("");
-    setEmail("");
-    setPhone("");
-    setMessage("");
   }
 
   return (
@@ -77,12 +63,14 @@ const Contact = (props) => {
             <div className="window-body">
               <div className="field-row-stacked" style={{ width: 280 }}>
                 <div
-                  className="field-row-stacked"
+                  className={`field-row-stacked ${
+                    errors["name"] ? "error" : ""
+                  }`}
                   id="small-input"
                   style={{ width: 200 }}
                 >
                   <label htmlFor="text23" id="text-labels">
-                    Name
+                    {errors["name"] ? errors["name"] : "Name"}
                   </label>
                   <input
                     id="name"
@@ -95,12 +83,14 @@ const Contact = (props) => {
                   />
                 </div>
                 <div
-                  className="field-row-stacked"
+                  className={`field-row-stacked ${
+                    errors["email"] ? "error" : ""
+                  }`}
                   id="small-input"
                   style={{ width: 200 }}
                 >
                   <label htmlFor="text23" id="text-labels">
-                    Email Address
+                    {errors["email"] ? errors["email"] : "E-mail"}
                   </label>
                   <input
                     id="name"
@@ -111,12 +101,14 @@ const Contact = (props) => {
                   />
                 </div>
                 <div
-                  className="field-row-stacked"
+                  className={`field-row-stacked ${
+                    errors["phone"] ? "error" : ""
+                  }`}
                   id="small-input"
                   style={{ width: 200 }}
                 >
                   <label htmlFor="text23" id="text-labels">
-                    Phone
+                    {errors["phone"] ? errors["phone"] : "Phone"}
                   </label>
                   <input
                     id="name"
@@ -142,9 +134,7 @@ const Contact = (props) => {
                 <button id="submit" onClick={submitter}>
                   Submit
                 </button>
-                <button id="cancel" onClick={textSubmitter}>
-                  Cancel
-                </button>
+                <button id="cancel">Cancel</button>
               </section>
             </div>
           </div>

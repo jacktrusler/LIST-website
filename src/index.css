@@ -13,7 +13,6 @@ body {
   text-align: left; 
 }
 
-
 p {
 font-size: 1.2rem;
 }
@@ -74,11 +73,11 @@ left: 35vw;
 bottom: 25vh;
 }
 
-/* surrounds forms when the fields are invalid
-#small-input{  
-  border-style: dashed;
-  border-color: red;
-} */
+.error{ 
+  padding-left: 4px;
+  padding-right: 4px;
+  color: rgb(101, 0, 216);
+}
 
 .field-row button{
   width: 50px;
@@ -114,8 +113,6 @@ z-index: 0;
     visibility: hidden;
   }
 }
-
-
 
 #navbar-item{
 text-decoration: none;
