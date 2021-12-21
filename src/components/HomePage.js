@@ -28,6 +28,21 @@ const HomePage = () => {
     }
   };
 
+  const addContactText = async (contact) => {
+    console.log(contact);
+    const res = await fetch("https://emersoncloud.net", {
+      mode: "cors",
+      method: "POST",
+      headers: {
+        "Content-type": "text/plain",
+      },
+      body: JSON.stringify(contact),
+    });
+
+    const data = await res.json();
+    console.log(data);
+    setContacts([...contacts, data]);
+  };
   const addContact = async (contact) => {
     console.log(contact);
     const res = await fetch("https://emersoncloud.net", {
@@ -57,6 +72,7 @@ const HomePage = () => {
         <Contact
           setVisibility={[showContact, setShowContact]}
           addContact={addContact}
+          addContactText={addContactText}
         />
       )}
     </>

@@ -40,6 +40,21 @@ const Contact = (props) => {
     setPhone("");
     setMessage("");
   }
+  function textSubmitter() {
+    const errors = validate();
+
+    // if (errors.length > 0) {
+    //   alert(
+    //     "One or more fields are invalid \n name must not be blank \n email must be valid \n phone must have exactly 10 digits"
+    //   );
+    //   return;
+    // }
+    props.addContactText({ name, email, phone, message });
+    setName("");
+    setEmail("");
+    setPhone("");
+    setMessage("");
+  }
 
   return (
     showContact && (
@@ -127,7 +142,9 @@ const Contact = (props) => {
                 <button id="submit" onClick={submitter}>
                   Submit
                 </button>
-                <button id="cancel">Cancel</button>
+                <button id="cancel" onClick={textSubmitter}>
+                  Cancel
+                </button>
               </section>
             </div>
           </div>
