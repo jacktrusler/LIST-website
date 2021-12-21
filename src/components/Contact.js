@@ -43,12 +43,12 @@ const Contact = (props) => {
   function textSubmitter() {
     const errors = validate();
 
-    // if (errors.length > 0) {
-    //   alert(
-    //     "One or more fields are invalid \n name must not be blank \n email must be valid \n phone must have exactly 10 digits"
-    //   );
-    //   return;
-    // }
+    if (errors.length > 0) {
+      alert(
+        "One or more fields are invalid \n name must not be blank \n email must be valid \n phone must have exactly 10 digits"
+      );
+      return;
+    }
     props.addContactText({ name, email, phone, message });
     setName("");
     setEmail("");
