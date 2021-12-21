@@ -29,7 +29,9 @@ const HomePage = () => {
   };
 
   const addContact = async (contact) => {
-    const res = await fetch("https://emersoncloud.net/", {
+    console.log(contact);
+    const res = await fetch("https://emersoncloud.net", {
+      mode: "cors",
       method: "POST",
       headers: {
         "Content-type": "application/json",
