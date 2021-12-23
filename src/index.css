@@ -159,14 +159,12 @@ small screen */
     visibility: visible;
     position: fixed;
     left: 10%;
-    bottom: 35vh;
+    bottom: 10vh;
   }
 
   #contact{
     visibility: hidden;
     position: fixed;
-    left: 10%;
-    bottom: 25vh;
   }
  
   #about{
