@@ -40,7 +40,11 @@ const HomePage = () => {
           setVisibility={[showCommandPrompt, setShowCommandPrompt]}
         />
       )}
-      {showCommandPromptMobile && <CommandPromptMobile />}
+      {showCommandPromptMobile && (
+        <CommandPromptMobile
+          setVisibility={[showCommandPromptMobile, setShowCommandPromptMobile]}
+        />
+      )}
       {showAbout && <About setVisibility={[showAbout, setShowAbout]} />}
       {showContact && (
         <Contact

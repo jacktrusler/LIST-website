@@ -9,7 +9,7 @@ const About = (props) => {
   return (
     showAbout && (
       <Draggable>
-        <div className="window" id="about" style={{ width: 400, height: 280 }}>
+        <div className="window" id="about" style={{ width: 360, height: 280 }}>
           <div className="title-bar">
             <div className="title-bar-text">About the Professionals</div>
             <div className="title-bar-controls">

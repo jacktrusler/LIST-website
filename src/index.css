@@ -151,8 +151,8 @@ small screen */
   #command-prompt-mobile {
     visibility: visible;
     position: fixed;
-    bottom: 50%;
-    left: 5%;
+    bottom: 45%;
+    left: 15%;
   }
 
   #contact-mobile{
