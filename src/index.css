@@ -30,6 +30,9 @@ font-size: 1rem;
 
 .content {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .background {
@@ -41,9 +44,8 @@ font-size: 1rem;
 .navbar { 
   position: relative;
   display: flex;
+  justify-content: left;
   gap: 2rem 2rem;
-  /* position: -webkit-sticky;
-  position: sticky; */
   background: rgb(2,0,36);
   background: linear-gradient(90deg, rgb(6, 2, 70) 0%, rgba(9,9,121,1) 23%, rgb(37, 68, 207) 100%); 
 }
@@ -61,15 +63,21 @@ font-size: 1rem;
   font-size: 1rem;
 }
 
+.command-prompt{
+  position: fixed;
+  left: 25%;
+  bottom: 40%;
+}
+
 #about{
 position: fixed; 
-left: 30vw;
-bottom: 33vh;
+left: 30%;
+bottom: 35%;
 }
 
 #contact{
 position: fixed;
-left: 35vw;
+left: 30%;
 bottom: 25vh;
 }
 
@@ -88,12 +96,6 @@ bottom: 25vh;
   font-size: 1rem
 }
 
-.command-prompt{
-  position: fixed;
-  left: 25vw;
-  bottom: 40vh;
-}
-
 .left-align{
   display: flex;
   justify-content: flex-start; 
@@ -106,12 +108,6 @@ z-index: 0;
 article[role="tabpanel"]{ 
 position: relative;
 z-index: 0; 
-}
-
-@media screen and (max-width: 600px) {
-  #start-button {
-    visibility: hidden;
-  }
 }
 
 #navbar-item{
@@ -139,4 +135,70 @@ border-color: red;
 }
 .big-text{
 font-size: 7rem; 
+}
+
+.mobile {
+  visibility: hidden;
+}
+
+/* mobile shib 
+small screen */
+@media screen and (max-width: 600px) {
+  .command-prompt{
+    visibility: hidden;
+  }
+
+  #command-prompt-mobile {
+    visibility: visible;
+    position: fixed;
+    bottom: 50%;
+    left: 5%;
+  }
+
+  #contact-mobile{
+    visibility: visible;
+    position: fixed;
+    left: 10%;
+    bottom: 35vh;
+  }
+
+  #contact{
+    visibility: hidden;
+    position: fixed;
+    left: 10%;
+    bottom: 25vh;
+  }
+ 
+  #about{
+    position: fixed; 
+    left: 5%;
+    bottom: 35%;
+  }
+  
+}
+
+/* large screen */
+@media screen and (min-width: 600px) {
+  #command-prompt-mobile {
+    visibility: hidden;
+    position: fixed;
+  }
+
+  #about{
+    position: fixed; 
+    left: 30%;
+    bottom: 35%;
+  }
+    
+  #contact{
+    position: fixed;
+    left: 35%;
+    bottom: 25vh;
+  }
+
+  #contact-mobile{
+    visibility: hidden;
+    position: fixed;
+  }
+    
 }

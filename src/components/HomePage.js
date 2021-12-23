@@ -1,62 +1,36 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CommandPrompt from "./CommandPrompt";
 import About from "./About.js";
 import Contact from "./Contact.js";
 import startButton from "../assets/startButton.png";
+import CommandPromptMobile from "./CommandPromptMobile";
+import ContactMobile from "./ContactMobile";
 
 const HomePage = () => {
   const [showCommandPrompt, setShowCommandPrompt] = useState(true);
+  const [showCommandPromptMobile, setShowCommandPromptMobile] = useState(true);
   const [showAbout, setShowAbout] = useState(false);
   const [showContact, setShowContact] = useState(false);
+  const [showContactMobile, setShowContactMobile] = useState(false);
   const [contacts, setContacts] = useState([]);
 
-  useEffect(() => {
-    async function stringyWait() {
-      const stringy = await fetchContacts();
-      console.log(stringy);
-    }
-    stringyWait();
-  }, []);
-
-  const fetchContacts = async () => {
-    try {
-      const res = await fetch("https://emersoncloud.net/all");
-      const data = await res;
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const addContactText = async (contact) => {
-    console.log(contact);
-    const res = await fetch("https://emersoncloud.net", {
-      mode: "cors",
-      method: "POST",
-      headers: {
-        "Content-type": "text/plain",
-      },
-      body: JSON.stringify(contact),
-    });
-
-    const data = await res.json();
-    console.log(data);
-    setContacts([...contacts, data]);
-  };
   const addContact = async (contact) => {
-    console.log(contact);
-    const res = await fetch("https://emersoncloud.net", {
-      mode: "cors",
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(contact),
-    });
+    try {
+      const res = await fetch("https://emersoncloud.net", {
+        mode: "cors",
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(contact),
+      });
 
-    const data = await res.json();
-    console.log(data);
-    setContacts([...contacts, data]);
+      const data = await res.json();
+      console.log(data);
+      setContacts([...contacts, data]);
+    } catch (error) {
+      return;
+    }
   };
 
   const DomWindow = () => (
@@ -66,20 +40,26 @@ const HomePage = () => {
           setVisibility={[showCommandPrompt, setShowCommandPrompt]}
         />
       )}
-
+      {showCommandPromptMobile && <CommandPromptMobile />}
       {showAbout && <About setVisibility={[showAbout, setShowAbout]} />}
       {showContact && (
         <Contact
           setVisibility={[showContact, setShowContact]}
           addContact={addContact}
-          addContactText={addContactText}
+        />
+      )}
+      {showContactMobile && (
+        <ContactMobile
+          setVisibility={[showContactMobile, setShowContactMobile]}
+          addContact={addContact}
         />
       )}
     </>
   );
 
-  const toggleCommandPrompt = () => {
+  const toggleCommandPrompts = () => {
     setShowCommandPrompt(!showCommandPrompt);
+    setShowCommandPromptMobile(!showCommandPromptMobile);
   };
 
   const toggleAbout = () => {
@@ -88,6 +68,7 @@ const HomePage = () => {
 
   const toggleContact = () => {
     setShowContact(!showContact);
+    setShowContactMobile(!showContactMobile);
   };
 
   return (
@@ -98,7 +79,7 @@ const HomePage = () => {
           <img src={startButton} alt=""></img>
         </div>
         <a id="navbar-item" href="#home">
-          <button onClick={toggleCommandPrompt}>Home</button>
+          <button onClick={toggleCommandPrompts}>Home</button>
         </a>
         <a id="navbar-item" href="#about">
           <button onClick={toggleAbout}>About</button>
