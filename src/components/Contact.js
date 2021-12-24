@@ -11,7 +11,6 @@ const Contact = (props) => {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({});
-  let test = true;
 
   function validate() {
     const newErrors = {};
