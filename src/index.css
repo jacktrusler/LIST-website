@@ -13,6 +13,14 @@ body {
   text-align: left; 
 }
 
+.homepage{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end; 
+  justify-content: center;
+}
+
 p {
 font-size: 1.2rem;
 }
@@ -31,8 +39,8 @@ font-size: 1rem;
 .content {
   flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 
 .background {
@@ -44,15 +52,19 @@ font-size: 1rem;
 .navbar { 
   position: relative;
   display: flex;
-  justify-content: left;
+  width: 100%;
+  justify-content: flex-start;
   gap: 2rem 2rem;
   background: rgb(2,0,36);
   background: linear-gradient(90deg, rgb(6, 2, 70) 0%, rgba(9,9,121,1) 23%, rgb(37, 68, 207) 100%); 
 }
 
 .navbar button{
-  width: 50px;
   height: 30px;
+}
+
+#navbar-item{
+  padding-top: 5px;
 }
 
 #text-labels{
@@ -65,20 +77,17 @@ font-size: 1rem;
 
 .command-prompt{
   position: fixed;
-  left: 25%;
-  bottom: 40%;
+  align-self: center;
 }
 
 #about{
 position: fixed; 
-left: 30%;
-bottom: 35%;
+align-self: center;
 }
 
 #contact{
 position: fixed;
-left: 30%;
-bottom: 25vh;
+align-self: center;
 }
 
 .error{ 
@@ -110,12 +119,6 @@ position: relative;
 z-index: 0; 
 }
 
-#navbar-item{
-text-decoration: none;
-color: white;
-padding-top: 5px;
-}
-
 .about-container{
 display: flex;
 flex-direction: row;
@@ -144,6 +147,19 @@ font-size: 7rem;
 /* mobile shib 
 small screen */
 @media screen and (max-width: 600px) {
+  #start-button{
+    visibility: hidden;
+    width: 0px;
+  }
+  .navbar {
+    justify-content: center;
+    gap: 0rem;
+  }
+
+  .navbar button{
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
   .command-prompt{
     visibility: hidden;
   }
@@ -151,26 +167,7 @@ small screen */
   #command-prompt-mobile {
     visibility: visible;
     position: fixed;
-    bottom: 45%;
-    left: 15%;
-  }
-
-  #contact-mobile{
-    visibility: visible;
-    position: fixed;
-    left: 10%;
-    bottom: 10vh;
-  }
-
-  #contact{
-    visibility: hidden;
-    position: fixed;
-  }
- 
-  #about{
-    position: fixed; 
-    left: 5%;
-    bottom: 35%;
+    align-self: center;
   }
   
 }
@@ -180,23 +177,5 @@ small screen */
   #command-prompt-mobile {
     visibility: hidden;
     position: fixed;
-  }
-
-  #about{
-    position: fixed; 
-    left: 30%;
-    bottom: 35%;
-  }
-    
-  #contact{
-    position: fixed;
-    left: 35%;
-    bottom: 25vh;
-  }
-
-  #contact-mobile{
-    visibility: hidden;
-    position: fixed;
-  }
-    
+  }   
 }

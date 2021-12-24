@@ -1,5 +1,5 @@
-import Draggable from "react-draggable";
 import { useState } from "react";
+import Draggable from "react-draggable";
 
 const Contact = (props) => {
   const [showContact, setShowContact] = props.setVisibility;
@@ -47,105 +47,99 @@ const Contact = (props) => {
 
   return (
     showContact && (
-      <Draggable>
-        <div>
-          <div
-            className="window"
-            id="contact"
-            style={{ width: 320, height: 420 }}
-          >
-            <div className="title-bar">
-              <div className="title-bar-text">Contact Us!</div>
-              <div className="title-bar-controls">
-                <button
-                  aria-label="Close"
-                  onClick={() => setShowContact(!showContact)}
-                ></button>
-              </div>
+      <Draggable cancel="input, button, textarea">
+        <div
+          className="window"
+          id="contact"
+          style={{ width: 320, height: 380 }}
+        >
+          <div className="title-bar">
+            <div className="title-bar-text">Contact Us!</div>
+            <div className="title-bar-controls">
+              <button
+                aria-label="Close"
+                onClick={() => setShowContact(!showContact)}
+              ></button>
             </div>
-            <div className="window-body">
-              <div className="field-row-stacked" style={{ width: 280 }}>
-                <div
-                  className={`field-row-stacked ${
-                    errors["name"] ? "error" : ""
-                  }`}
-                  id="small-input"
-                  style={{ width: 200 }}
-                >
-                  <label htmlFor="text23" id="text-labels">
-                    {errors["name"] ? errors["name"] : "Name"}
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    placeholder="Jason Derulo"
-                    value={name}
-                    onChange={(e) => {
-                      setName(e.target.value);
-                    }}
-                  />
-                </div>
-                <div
-                  className={`field-row-stacked ${
-                    errors["email"] ? "error" : ""
-                  }`}
-                  id="small-input"
-                  style={{ width: 200 }}
-                >
-                  <label htmlFor="text23" id="text-labels">
-                    {errors["email"] ? errors["email"] : "E-mail"}
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    placeholder="TheZimmer@Zimmerman.church"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-                <div
-                  className={`field-row-stacked ${
-                    errors["phone"] ? "error" : ""
-                  }`}
-                  id="small-input"
-                  style={{ width: 200 }}
-                >
-                  <label htmlFor="text23" id="text-labels">
-                    {errors["phone"] ? errors["phone"] : "Phone"}
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    placeholder="xxx-xxx-xxxx"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                  />
-                </div>
-                <label htmlFor="text24" id="text-labels">
-                  Message
+          </div>
+          <div className="window-body">
+            <div className="field-row-stacked" style={{ width: 280 }}>
+              <div
+                className={`field-row-stacked ${errors["name"] ? "error" : ""}`}
+                id="small-input"
+                style={{ width: 200 }}
+              >
+                <label htmlFor="text23" id="text-labels">
+                  {errors["name"] ? errors["name"] : "Name"}
                 </label>
-                <textarea
+                <input
+                  id="name"
+                  Draggable={false}
+                  type="text"
+                  placeholder="Jason Derulo"
+                  value={name}
+                  onMouseDown={(e) => e.stopPropagation()}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                />
+              </div>
+              <div
+                className={`field-row-stacked ${
+                  errors["email"] ? "error" : ""
+                }`}
+                id="small-input"
+                style={{ width: 200 }}
+              >
+                <label htmlFor="text23" id="text-labels">
+                  {errors["email"] ? errors["email"] : "E-mail"}
+                </label>
+                <input
                   id="name"
                   type="text"
-                  rows="11"
-                  placeholder="Your Message Here :D"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                ></textarea>
+                  placeholder="TheZimmer@Zimmerman.church"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </div>
-              <section className="field-row" id="field-row">
-                <button id="submit" onClick={submitter}>
-                  Submit
-                </button>
-                <button id="cancel">Cancel</button>
-                {
-                  showSuccess && <div>Success! ✅</div>
-                }
-                {
-                  showError && <div>Server error! ❌</div>
-                }
-              </section>
+              <div
+                className={`field-row-stacked ${
+                  errors["phone"] ? "error" : ""
+                }`}
+                id="small-input"
+                style={{ width: 200 }}
+              >
+                <label htmlFor="text23" id="text-labels">
+                  {errors["phone"] ? errors["phone"] : "Phone"}
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  placeholder="xxx-xxx-xxxx"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+              </div>
+              <label htmlFor="text24" id="text-labels">
+                Message
+              </label>
+              <textarea
+                id="name"
+                type="text"
+                rows="8"
+                placeholder="Your Message Here :D"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              ></textarea>
             </div>
+            <section className="field-row" id="field-row">
+              <button id="submit" onClick={submitter}>
+                Submit
+              </button>
+              <button id="cancel">Cancel</button>
+              {showSuccess && <div>Success! ✅</div>}
+              {showError && <div>Server error! ❌</div>}
+            </section>
           </div>
         </div>
       </Draggable>

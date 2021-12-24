@@ -4,14 +4,15 @@ import About from "./About.js";
 import Contact from "./Contact.js";
 import startButton from "../assets/startButton.png";
 import CommandPromptMobile from "./CommandPromptMobile";
-import ContactMobile from "./ContactMobile";
 
 const HomePage = () => {
+  //---Command Prompt
   const [showCommandPrompt, setShowCommandPrompt] = useState(true);
   const [showCommandPromptMobile, setShowCommandPromptMobile] = useState(true);
+  //---About
   const [showAbout, setShowAbout] = useState(false);
+  //---Contact
   const [showContact, setShowContact] = useState(false);
-  const [showContactMobile, setShowContactMobile] = useState(false);
   const [contacts, setContacts] = useState([]);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
@@ -26,9 +27,7 @@ const HomePage = () => {
         },
         body: JSON.stringify(contact),
       });
-
       const data = await res.json();
-      console.log(data);
       setContacts([...contacts, data]);
       return true;
     } catch (error) {
@@ -57,12 +56,6 @@ const HomePage = () => {
           addContact={addContact}
         />
       )}
-      {showContactMobile && (
-        <ContactMobile
-          setVisibility={[showContactMobile, setShowContactMobile]}
-          addContact={addContact}
-        />
-      )}
     </>
   );
 
@@ -77,27 +70,28 @@ const HomePage = () => {
 
   const toggleContact = () => {
     setShowContact(!showContact);
-    setShowContactMobile(!showContactMobile);
   };
 
   return (
-    <div className="homePage">
-      <DomWindow />
-      <div className="navbar">
-        <div id="start-button" href="#home">
-          <img src={startButton} alt=""></img>
+    <>
+      <div className="homepage">
+        <DomWindow />
+        <div className="navbar">
+          <div id="start-button" href="#home">
+            <img src={startButton} alt=""></img>
+          </div>
+          <a id="navbar-item" href="#home">
+            <button onClick={toggleCommandPrompts}>Home</button>
+          </a>
+          <a id="navbar-item" href="#about">
+            <button onClick={toggleAbout}>About</button>
+          </a>
+          <a id="navbar-item" href="#contact">
+            <button onClick={toggleContact}>Contact</button>
+          </a>
         </div>
-        <a id="navbar-item" href="#home">
-          <button onClick={toggleCommandPrompts}>Home</button>
-        </a>
-        <a id="navbar-item" href="#about">
-          <button onClick={toggleAbout}>About</button>
-        </a>
-        <a id="navbar-item" href="#contact">
-          <button onClick={toggleContact}>Contact</button>
-        </a>
       </div>
-    </div>
+    </>
   );
 };
 

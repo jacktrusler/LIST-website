@@ -8,7 +8,7 @@ const About = (props) => {
 
   return (
     showAbout && (
-      <Draggable>
+      <Draggable cancel="button">
         <div className="window" id="about" style={{ width: 360, height: 280 }}>
           <div className="title-bar">
             <div className="title-bar-text">About the Professionals</div>

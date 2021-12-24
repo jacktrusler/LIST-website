@@ -11,8 +11,9 @@ function App() {
           backgroundImage: `url(${greenHill})`,
           backgroundSize: "cover",
         }}
-      ></div>
-      <HomePage />
+      >
+        <HomePage />
+      </div>
     </div>
   );
 }
