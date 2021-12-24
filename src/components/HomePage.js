@@ -13,10 +13,12 @@ const HomePage = () => {
   const [showContact, setShowContact] = useState(false);
   const [showContactMobile, setShowContactMobile] = useState(false);
   const [contacts, setContacts] = useState([]);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const addContact = async (contact) => {
     try {
-      const res = await fetch("https://emersoncloud.net", {
+      const res = await fetch("https://emersoncloud.net/send_email", {
         mode: "cors",
         method: "POST",
         headers: {
@@ -28,8 +30,9 @@ const HomePage = () => {
       const data = await res.json();
       console.log(data);
       setContacts([...contacts, data]);
+      return true;
     } catch (error) {
-      return;
+      return false;
     }
   };
 
@@ -49,6 +52,8 @@ const HomePage = () => {
       {showContact && (
         <Contact
           setVisibility={[showContact, setShowContact]}
+          setSuccess={[showSuccess, setShowSuccess]}
+          setError={[showError, setShowError]}
           addContact={addContact}
         />
       )}

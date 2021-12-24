@@ -3,6 +3,8 @@ import { useState } from "react";
 
 const Contact = (props) => {
   const [showContact, setShowContact] = props.setVisibility;
+  const [showSuccess, setShowSuccess] = props.setSuccess;
+  const [showError, setShowError] = props.setError;
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -31,13 +33,14 @@ const Contact = (props) => {
     return true;
   }
 
-  function submitter() {
+  async function submitter() {
     if (validate()) {
-      props.addContact({ name, email, phone, message });
-      setName("");
-      setEmail("");
-      setPhone("");
-      setMessage("");
+      const success = await props.addContact({ name, email, phone, message });
+      if (success) {
+        setShowSuccess(true);
+      } else {
+        setShowError(true);
+      }
       setErrors({});
     }
   }
@@ -135,6 +138,12 @@ const Contact = (props) => {
                   Submit
                 </button>
                 <button id="cancel">Cancel</button>
+                {
+                  showSuccess && <div>Success! ✅</div>
+                }
+                {
+                  showError && <div>Server error! ❌</div>
+                }
               </section>
             </div>
           </div>
